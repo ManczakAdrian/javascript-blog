@@ -1,10 +1,10 @@
 
 document.getElementById('test-button').addEventListener('click', function () {
   const links = document.querySelectorAll('.titles a');
-  
+
   console.log('links:', links);
   console.log(event);
-  
+
 });
 
 // document.getElementById('button').addEventListener('click', function(){
@@ -12,9 +12,10 @@ document.getElementById('test-button').addEventListener('click', function () {
 //   console.log(event);
 // });
 
-'use strict'
+'use strict';
 
 const titleClickHandler = function (event) {
+  event.preventDefault();
   const clickedElement = this;
   console.log('Link was clicked!');
   console.log(event);
@@ -32,23 +33,25 @@ const titleClickHandler = function (event) {
   console.log('clickedElement:', clickedElement);
 
   /* remove class 'active' from all articles */
-    console.log('Link was clicked!');
-    console.log(event);
-    const activeArticles = document.querySelectorAll('.post');
-    for (let activeArticle of activeArticles) {
-      activeArticle.classList.remove('active');
-    }
+  console.log('Link was clicked!');
+  console.log(event);
+  const activeArticles = document.querySelectorAll('.post');
+  for (let activeArticle of activeArticles) {
+    activeArticle.classList.remove('active');
   }
-    /* get 'href' attribute from the clicked link */
 
+  /* get 'href' attribute from the clicked link */
+  const articleSelector = clickedElement.getAttribute('href');
+  console.log('articleSelector');
 
-    /* find the correct article using the selector (value of 'href' attribute) */
+  /* find the correct article using the selector (value of 'href' attribute) */
+  const targetArticle = querySelector('href');
+  console.log(targetArticle);
+};
+/* add class 'active' to the correct article????? */
 
-    /* add class 'active' to the correct article????? */
-
-  const links = document.querySelectorAll('.titles a');
-    console.log(links);
-    for (let link of links) {
-      link.addEventListener('click', titleClickHandler);  
-    }
-    
+const links = document.querySelectorAll('.titles a');
+console.log(links);
+for (let link of links) {
+  link.addEventListener('click', titleClickHandler);
+}
