@@ -15,10 +15,7 @@ document.getElementById('test-button').addEventListener('click', function () {
 'use strict';
 
 const titleClickHandler = function (event) {
-  const links=document.querySelectorAll ('.titles a');
-  for(let link of links){
-    link.addEventListener('click', titleClickHandler);
-  }
+  
   event.preventDefault();
   const clickedElement = this;
   console.log('Link was clicked!');
@@ -59,7 +56,10 @@ const titleClickHandler = function (event) {
 
 };
 
-
+const links=document.querySelectorAll ('.titles a');
+  for(let link of links){
+    link.addEventListener('click', titleClickHandler);
+  }
 
 const optArticleSelector = '.post',
   optTitleSelector = '.post-title',
