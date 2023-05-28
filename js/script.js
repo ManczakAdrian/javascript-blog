@@ -11,76 +11,81 @@ document.getElementById('test-button').addEventListener('click', function () {
 //   console.log('links:', links);
 //   console.log(event);
 // });
+{
+  'use strict';
 
-'use strict';
+  const titleClickHandler = function (event) {
 
-const titleClickHandler = function (event) {
-  
-  event.preventDefault();
-  const clickedElement = this;
-  console.log('Link was clicked!');
-  console.log(event);
-  /* remove class 'active' from all article links  */
-  const activeLinks = document.querySelectorAll('.titles a.active');
-  for (let activeLink of activeLinks) {
-    activeLink.classList.remove('active');
-  }
+    event.preventDefault();
+    const clickedElement = this;
+    console.log('Link was clicked!');
+    console.log(event);
+    /* remove class 'active' from all article links  */
+    const activeLinks = document.querySelectorAll('.titles a.active');
+    for (let activeLink of activeLinks) {
+      activeLink.classList.remove('active');
+    }
 
-  /* add class 'active' to the clicked link */
-  clickedElement.classList.add('active');
-  console.log('clickedElement (with plus): ' + clickedElement);
-
-
-  console.log('clickedElement:', clickedElement);
-
-  /* remove class 'active' from all articles */
-  console.log('Link was clicked!');
-  console.log(event);
-  const activeArticles = document.querySelectorAll('.post');
-  for (let activeArticle of activeArticles) {
-    activeArticle.classList.remove('active');
-  }
-
-  /* get 'href' attribute from the clicked link */
-  const articleSelector = clickedElement.getAttribute('href');
-
-  console.log('articleSelector');
-
-  /* find the correct article using the selector (value of 'href' attribute) */
-  const targetArticle = document.querySelector(articleSelector);
-  console.log(targetArticle);
-  /* add class 'active' to the correct article????? */
-  targetArticle.classList.add('active');
+    /* add class 'active' to the clicked link */
+    clickedElement.classList.add('active');
+    console.log('clickedElement (with plus): ' + clickedElement);
 
 
+    console.log('clickedElement:', clickedElement);
 
-};
+    /* remove class 'active' from all articles */
+    console.log('Link was clicked!');
+    console.log(event);
+    const activeArticles = document.querySelectorAll('.post');
+    for (let activeArticle of activeArticles) {
+      activeArticle.classList.remove('active');
+    }
 
-const links=document.querySelectorAll ('.titles a');
-  for(let link of links){
+    /* get 'href' attribute from the clicked link */
+    const articleSelector = clickedElement.getAttribute('href');
+
+    console.log('articleSelector');
+
+    /* find the correct article using the selector (value of 'href' attribute) */
+    const targetArticle = document.querySelector(articleSelector);
+    console.log(targetArticle);
+    /* add class 'active' to the correct article????? */
+    targetArticle.classList.add('active');
+  };
+
+  const links = document.querySelectorAll('.titles a');
+  for (let link of links) {
     link.addEventListener('click', titleClickHandler);
   }
 
-const optArticleSelector = '.post',
-  optTitleSelector = '.post-title',
-  optTitleListSelector = '.titles';
 
-function generateTitleLinks() {
 
-  /* remove contents of titleList */
+  const optArticleSelector = '.post',
+    optTitleSelector = '.post-title',
+    optTitleListSelector = '.titles';
 
-  /* for each article */
+  function generateTitleLinks() {
 
-  /* get the article id */
+    /* remove contents of titleList */
+    titleList=document.querySelector(optTitleSelector);
 
-  /* find the title element */
+    function clearMessages(){
+      document.getElementById('messages').innerHTML = 'list titles';
+    }
 
-  /* get the title from the title element */
+    /* for each article */
 
-  /* create HTML of the link */
+    /* get the article id */
 
-  /* insert link into titleList */
+    /* find the title element */
 
-}
+    /* get the title from the title element */
 
-generateTitleLinks();
+    /* create HTML of the link */
+
+    /* insert link into titleList */
+
+  }
+
+  generateTitleLinks();
+};
