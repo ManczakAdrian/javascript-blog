@@ -53,11 +53,7 @@ document.getElementById('test-button').addEventListener('click', function () {
     targetArticle.classList.add('active');
   };
 
-  const links = document.querySelectorAll('.titles a');
-  for (let link of links) {
-    link.addEventListener('click', titleClickHandler);
-  }
-
+  
 
 
   const optArticleSelector = '.post',
@@ -74,13 +70,13 @@ document.getElementById('test-button').addEventListener('click', function () {
     }
 
     /* for each article */
-    const articles = document.querySelector(optTitleListSelector);
-    
+    const articles = document.querySelectorAll(optTitleListSelector);
+
     for (let article of articles) {
     /* get the article id */
     const articleId = document.getAttribute('id');
     /* find the title element */
-    const articleTitle = article.querySelector(optTitleSelector).innerHTML;
+    const articleTitle = article.querySelectorAll(optTitleSelector).innerHTML;
     /* get the title from the title element */
 
     /* create HTML of the link */
@@ -93,6 +89,12 @@ document.getElementById('test-button').addEventListener('click', function () {
   }
 
   }
+
+  const links = document.querySelectorAll('.titles a');
+  for (let link of links) {
+    link.addEventListener('click', titleClickHandler);
+  }
+
 
   generateTitleLinks();
 };
