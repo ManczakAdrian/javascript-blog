@@ -97,11 +97,14 @@ document.getElementById('test-button').addEventListener('click', function () {
 
 
   optArticleTagsSelector = '.post-tags .list';
-  let html = '';
-  let articleTags = data-tags;
+  
+  
 
   function generateTags() {
+
+    let html = '';
     
+  
     /* find all articles */
     const articleSelector = article.getAttribute(articleTags);
     articles = document.querySelectorAll(optArticleTagsSelector);
@@ -116,7 +119,7 @@ document.getElementById('test-button').addEventListener('click', function () {
     /* get tags from data-tags attribute */
     const articleSelector = article.getAttribute(articleTags);
     /* split tags into array */
-    const articleTagsArray = articleTags.split(' ');
+    const articleTagsArray = articleTags.split('href');
   }
     
     /* START LOOP: for each tag */
