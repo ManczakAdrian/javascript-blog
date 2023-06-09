@@ -101,49 +101,40 @@ document.getElementById('test-button').addEventListener('click', function () {
   
 
   function generateTags() {
-
-    let html = '';
-    
-  
     /* find all articles */
-    const articleSelector = article.getAttribute(articleTags);
-    articles = document.querySelectorAll(optArticleTagsSelector);
+    articles = document.querySelectorAll(optArticleSelector);
     /* START LOOP: for every article: */
     for (let article of articles) {
 
-    /* find tags wrapper */
-   const tagList = article.querySelector(optArticleTagsSelector);
+      /* find tags wrapper */
+      const tagList = article.querySelector(".post-tags .list");
 
-    /* make html variable with empty string */
+      /* make html variable with empty string */
+      let html = "";
 
-    /* get tags from data-tags attribute */
-    const articleSelector = article.getAttribute(articleTags);
-    /* split tags into array */
-    const articleTagsArray = articleTags.split('href');
-  }
-    
-    /* START LOOP: for each tag */
-    articleTagsArray=document.querySelectorAll(optArticleTagsSelector);
-   
-   
-    for(let tag of articleTagsArray){
+      /* get tags from data-tags attribute */
+      const tags = article.getAttribute("data-tags");
+      /* split tags into array */
+      const articleTagsArray = tags.split(' ');
 
-      const tagId='';
-      console.log(tag);
-    /* generate HTML of the link */
+      /* START LOOP: for each tag */
+      for (let tag of articleTagsArray) {
 
-    const linkHTML = '<li><a href="#tag-' + '' + '"><span>' + articleTagsArray + '</span></a></li>';
-    console.log(linkHTML);
-    /* add generated code to html variable */
+        /* generate HTML of the link */
+        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+        /* add generated code to html variable */
+        html += linkHTML;
 
+        /* END LOOP: for each tag */
+      }
 
+      /* insert HTML of all the links into the tags wrapper */
+      tagList.innerHTML = html;
+
+      /* END LOOP: for every article: */
     }
-    /* END LOOP: for each tag */
-
-    /* insert HTML of all the links into the tags wrapper */
-
-    /* END LOOP: for every article: */
   }
+  
   generateTags();
 
   function tagClickHandler(event){
