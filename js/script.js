@@ -18,8 +18,7 @@ document.getElementById('test-button').addEventListener('click', function () {
 
     event.preventDefault();
     const clickedElement = this;
-    console.log('Link was clicked!');
-    console.log(event);
+
     /* remove class 'active' from all article links  */
     const activeLinks = document.querySelectorAll('.titles a.active');
     for (let activeLink of activeLinks) {
@@ -142,11 +141,11 @@ document.getElementById('test-button').addEventListener('click', function () {
         /* END LOOP: for every article: */
       }
 
-        /* [NEW] find list of tags in right column */
-        const rightTagList = document.querySelector(optTagsListSelector);
+      /* [NEW] find list of tags in right column */
+      const rightTagList = document.querySelector(optTagsListSelector);
 
-        /* [NEW] add html from allTags to tagList */
-        rightTagList.innerHTML = allTags.join(' ');
+      /* [NEW] add html from allTags to tagList */
+      rightTagList.innerHTML = allTags.join(' ');
     }
   }
   generateTags();
@@ -176,40 +175,43 @@ document.getElementById('test-button').addEventListener('click', function () {
     const tags = document.querySelectorAll('a[href="' + href + '"]');
     /* START LOOP: for each found tag link */
     for (let foundTag of tags) {
-      
-    /* add class active */
-    foundTag.classList.add('active');
-  
-    /* END LOOP: for each found tag link */
-  }
+
+      /* add class active */
+      foundTag.classList.add('active');
+
+      /* END LOOP: for each found tag link */
+    }
     /* execute function "generateTitleLinks" with article selector as argument */
     generateTitleLinks('[data-tags~="' + tag + '"]');
 
   }
 
-  function addClickListenersToTags() {
+  function addClickListenersToTags(tags, callback) {
+
     /* find all links to tags */
-
+    const elements = document.querySelectorAll(tags);
     /* START LOOP: for each link */
+    elements.forEach(function (element) {
+      element.addEventListener('click', callback);
+    });
+  /* add tagClickHandler as event listener for that link */
 
-    /* add tagClickHandler as event listener for that link */
+  /* END LOOP: for each link */
+}
 
-    /* END LOOP: for each link */
-  }
-
-  addClickListenersToTags();
+addClickListenersToTags();
 
 
-  function generateAuthor() {
+function generateAuthor() {
 
-    optArticleAuthorSelector = 'post-author';
-    articles = document.querySelectorAll(optArticleAuthorSelector);
+  optArticleAuthorSelector = 'post-author';
+  articles = document.querySelectorAll(optArticleAuthorSelector);
 
-    const author = article.getAttribute("post-author");
-    let html = "";
+  const author = article.getAttribute("post-author");
+  let html = "";
 
-  }
-  generateAuthor();
+}
+generateAuthor();
 
 
   // addClickListenersToAuthors(){
@@ -226,4 +228,3 @@ document.getElementById('test-button').addEventListener('click', function () {
   //authorClickHandler();
 
 }
-  
