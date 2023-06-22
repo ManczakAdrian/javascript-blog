@@ -147,10 +147,6 @@ document.getElementById('test-button').addEventListener('click', function () {
 
         /* [NEW] add html from allTags to tagList */
         rightTagList.innerHTML = allTags.join(' ');
-
-
-
-      
     }
   }
   generateTags();
