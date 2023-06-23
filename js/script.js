@@ -121,7 +121,9 @@ document.getElementById('test-button').addEventListener('click', function () {
       for (let tag of articleTagsArray) {
 
         /* generate HTML of the link */
-        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
+
+        const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>&nbsp;';
+        //const linkHTML = '<li><a href="#tag-' + tag + '"><span>' + tag + '</span></a></li>';
         /* add generated code to html variable */
         html += linkHTML;
 
@@ -202,7 +204,7 @@ document.getElementById('test-button').addEventListener('click', function () {
 addClickListenersToTags();
 
 
-function generateAuthor() {
+function generateAuthor(name) {
 
   optArticleAuthorSelector = 'post-author';
   articles = document.querySelectorAll(optArticleAuthorSelector);
