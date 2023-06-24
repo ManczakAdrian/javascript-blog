@@ -206,22 +206,28 @@ addClickListenersToTags();
 
 function generateAuthor(name) {
 
-  optArticleAuthorSelector = 'post-author';
+  optArticleAuthorSelector = 'author-name';
   articles = document.querySelectorAll(optArticleAuthorSelector);
 
-  const author = article.getAttribute("post-author");
+  const author = article.getAttribute('author-name');
   let html = "";
 
 }
 generateAuthor();
 
 
-  // addClickListenersToAuthors(){
+   addClickListenersToAuthors('post-author',callback) {
+
+    const auth=document.querySelectorAll('post-author');
+    
+    elements.forEach(function (auth) {
+      element.addEventListener('click', callback);
+    });
 
 
-  // }
+   }
 
-  //addClickListenersToAuthors();
+  addClickListenersToAuthors();
 
   // authorClickHandler(){
 
