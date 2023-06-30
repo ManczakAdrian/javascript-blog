@@ -204,30 +204,27 @@ document.getElementById('test-button').addEventListener('click', function () {
 addClickListenersToTags();
 
 
-function generateAuthor(name) {
+function generateAuthor() {
+  const articles = document.querySelectorAll('.post');
 
-  optArticleAuthorSelector = 'author-name';
-  articles = document.querySelectorAll(optArticleAuthorSelector);
-
-  const author = article.getAttribute('author-name');
-  let html = "";
+  for(const article of articles) {
+    const author = article.getAttribute('data-author');
+    let html = "";
+  }
 
 }
 generateAuthor();
 
 
-   addClickListenersToAuthors('post-author',callback) {
+function addClickListenersToAuthors() {
+  const elements = document.querySelectorAll('a[href^="#author-"]');
+  
+  elements.forEach(function (element) {
+    element.addEventListener('click', authorClickHandler)
+  });
+}
 
-    const auth=document.querySelectorAll('post-author');
-    
-    elements.forEach(function (auth) {
-      element.addEventListener('click', callback);
-    });
-
-
-   }
-
-  addClickListenersToAuthors();
+addClickListenersToAuthors();
 
   // authorClickHandler(){
 
