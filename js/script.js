@@ -144,7 +144,7 @@ document.getElementById('test-button').addEventListener('click', function () {
       }
 
       /* [NEW] find list of tags in right column */
-      const rightTagList = document.querySelector(optTagsListSelector);
+      const rightTagList = document.querySelector(".tags.list");
 
       /* [NEW] add html from allTags to tagList */
       rightTagList.innerHTML = allTags.join(' ');
