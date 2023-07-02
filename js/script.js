@@ -196,35 +196,35 @@ document.getElementById('test-button').addEventListener('click', function () {
     elements.forEach(function (element) {
       element.addEventListener('click', callback);
     });
-  /* add tagClickHandler as event listener for that link */
+    /* add tagClickHandler as event listener for that link */
 
-  /* END LOOP: for each link */
-}
-
-addClickListenersToTags();
-
-
-function generateAuthor() {
-  const articles = document.querySelectorAll('.post');
-
-  for(const article of articles) {
-    const author = article.getAttribute('data-author');
-    let html = "";
+    /* END LOOP: for each link */
   }
 
-}
-generateAuthor();
+  addClickListenersToTags();
 
 
-function addClickListenersToAuthors() {
-  const elements = document.querySelectorAll('a[href^="#author-"]');
-  
-  elements.forEach(function (element) {
-    element.addEventListener('click', authorClickHandler)
-  });
-}
+  function generateAuthor() {
+    const articles = document.querySelectorAll('.post');
 
-addClickListenersToAuthors();
+    for (const article of articles) {
+      const author = article.getAttribute('data-author');
+      let html = "";
+    }
+
+  }
+  generateAuthor();
+
+
+  function addClickListenersToAuthors() {
+    const elements = document.querySelectorAll('a[href^="#author-"]');
+
+    elements.forEach(function (element) {
+      element.addEventListener('click', authorClickHandler)
+    });
+  }
+
+  addClickListenersToAuthors();
 
   // authorClickHandler(){
 
