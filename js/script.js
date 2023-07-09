@@ -131,21 +131,15 @@ document.getElementById('test-button').addEventListener('click', function () {
         if (allTags.indexOf(linkHTML) == -1) {
           /* [NEW] add generated code to allTags array */
           allTags.push(linkHTML);
-
-
-
           /* END LOOP: for each tag */
         }
-
         /* insert HTML of all the links into the tags wrapper */
         tagList.innerHTML = html;
 
         /* END LOOP: for every article: */
       }
-
       /* [NEW] find list of tags in right column */
       const rightTagList = document.querySelector(".tags.list");
-
       /* [NEW] add html from allTags to tagList */
       rightTagList.innerHTML = allTags.join(' ');
     }
@@ -210,8 +204,9 @@ document.getElementById('test-button').addEventListener('click', function () {
     for (const article of articles) {
       const author = article.getAttribute('data-author');
       let html = "";
-    }
 
+      listAuthors.innerHTML = html;
+    }
   }
   generateAuthor();
 
