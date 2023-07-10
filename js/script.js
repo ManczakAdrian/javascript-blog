@@ -97,6 +97,7 @@ document.getElementById('test-button').addEventListener('click', function () {
 
 
   optArticleTagsSelector = '.post-tags .list';
+  optTagsListSelector='.tags.list';
 
 
 
@@ -188,24 +189,23 @@ document.getElementById('test-button').addEventListener('click', function () {
 
     /* END LOOP: for each link */
   }
-
+}
   addClickListenersToTags();
 
 
+  optArticleAuthorSelector='post-author';
+
   function generateAuthor() {
-    const articles = document.querySelectorAll('.post');
+    const articles = document.querySelectorAll(optArticleSelector);
 
-    for (const article of articles) {
+    for (let article of allArticles){
+      const authorWrapper = article.querySelector(optArticleAuthorSelector);
       const author = article.getAttribute('data-author');
-      let html = "";
-
-      if (author.indexOf(linkHTML) == -1) {
-
-        author.push(linkHTML);
-
-        listAuthors.innerHTML = author.join(' ');
-      }
+      const authorHTML = 'by <a href="#' + author + '">' + author + '</a>';
+      authorWrapper.innerHTML = authorHTML;
     }
+  }
+  
     generateAuthor();
 
 
@@ -234,10 +234,11 @@ document.getElementById('test-button').addEventListener('click', function () {
       for (let foundauthor of author) {
         foundauthor.classList.add('active');
       }
+    }
 
       generateTitleLinks('[data-auhor="' + Authors + '"]');
 
-    }
+      
 
-  }
-}
+  
+
