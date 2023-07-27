@@ -166,32 +166,29 @@ document.getElementById('test-button').addEventListener('click', function () {
         }
         /* insert HTML of all the links into the tags wrapper */
         tagList.innerHTML = html;
-        console.log(allTags);
         /* END LOOP: for every article: */
       }
       /* [NEW] find list of tags in right column */
-      const rightTagList = document.querySelector(".tags.list");
+      let rightTagList = document.querySelector(".tags.list");
+      rightTagList.innerHTML = '';
       /* [NEW] add html from allTags to tagList */
       //rightTagList.innerHTML = allTags.join(' ');
 
       /* [NEW] create variable for all links HTML code */
       const tagsParams = calculateTagsParams(allTags);
-      console.log('tagsParams:', tagsParams)
       let allTagsHTML = '';
-
-      const tagLinkHTML = '<li>' + calculateTagClass(allTagsHTML += '<li><a href="#tag-' + tag + '"><span>' + tag + '(' + allTags[tag] + ')</span></a></li>&nbsp;');
-      console.log('tagLinkHTML:', tagLinkHTML);
-
 
       /* [NEW] START LOOP: for each tag in allTags: */
       for (let tag in allTags) {
         /* [NEW] generate code of a link and add it to allTagsHTML */
-        allTagsHTML += tagLinkHTML;
+        const tagLinkHTML = '<li>' + '<a href="#tag-' + tag + '"><span>' + tag + '(' + allTags[tag] + ')</span></a></li>';
+
+        rightTagList.innerHTML += tagLinkHTML;
       }
       /* [NEW] END LOOP: for each tag in allTags: */
 
       /*[NEW] add HTML from allTagsHTML to tagList */
-      tagList.innerHTML = allTagsHTML;
+      // tagList.innerHTML = allTagsHTML;
 
     }
   }
