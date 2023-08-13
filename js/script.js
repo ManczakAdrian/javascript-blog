@@ -120,7 +120,7 @@ document.getElementById('test-button').addEventListener('click', function () {
   };
 
   function calculateTagClass(count, params) {
-    const tagCounts={};
+    const tagCounts = {};
 
 
   }
@@ -243,6 +243,8 @@ addClickListenersToTags();
 optArticleAuthorSelector = '.post-author';
 
 function generateAuthor() {
+
+  let allAuthors = {}; // pusty obiekt 
   const allArticles = document.querySelectorAll(optArticleSelector);
 
   for (let article of allArticles) {
@@ -250,6 +252,16 @@ function generateAuthor() {
     const author = article.getAttribute('data-author');
     const authorHTML = 'by <a href="#author-' + author + '">' + author + '</a>';
     authorWrapper.innerHTML = authorHTML;
+
+    if (!allAuthors[author]) {
+      allAuthors[author] = true;
+    }
+  }
+
+  for (let author in allAuthors) {
+    const authorLinkHTML = '<li<a href="#author' + author + '"><span>' + author + '</span></a></li>';
+    authorList.innerHTML += authorLinkHTML;
+
   }
 }
 
@@ -259,7 +271,7 @@ function authorClickHandler(event) {
   event.preventDefault();
   const clickedElement = this;
   const href = clickedElement.getAttribute('href');
-  const author = href.replace('#author-','');
+  const author = href.replace('#author-', '');
   const activeauthorLinks = document.generateTitleLinks('[data-author="' + author + '"]');
 
   for (let activeauthorLink of activeauthorLinks) {
