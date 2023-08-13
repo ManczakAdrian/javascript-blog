@@ -258,8 +258,12 @@ function generateAuthor() {
     }
   }
 
+  let authorList=document.querySelector("list authors");
+  authorList.innerHTML='';
+
   for (let author in allAuthors) {
-    const authorLinkHTML = '<li<a href="#author' + author + '"><span>' + author + '</span></a></li>';
+    const authorLinkHTML = '<li<a href="#author'
+     + author + '"><span>' + author + '</span></a></li>';
     authorList.innerHTML += authorLinkHTML;
 
   }
