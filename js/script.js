@@ -258,7 +258,7 @@ function generateAuthor() {
     }
   }
 
-  let authorList=document.querySelector("list authors");
+  let authorList=document.querySelector(".list.authors");
   authorList.innerHTML='';
 
   for (let author in allAuthors) {
